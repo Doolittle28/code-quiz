@@ -3,7 +3,7 @@
 ## User Story
 
 -AS A coding boot camp student  
--I WANT to take a timed quiz on fundamentals that stores scores  
+-I WANT to take a timed quiz on fundamentals that stores last score
 -SO THAT I can gauge my progress compared to my peers  
 
 ## Built With
