@@ -28,8 +28,6 @@ var timeLeft = 60;
 var currentQuestion = 0;
 var feedback = document.getElementById('feedback');
 
-
-
 function startGame() {
     newQuestion();
 
@@ -56,7 +54,7 @@ function newQuestion() {
     var answers = document.createElement('ol');
 
     if (questionCon === questions.length) {
-        questionCon.innerHTML = "";
+        quizEnd();
     }
 
     for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
@@ -75,25 +73,36 @@ function correctAnswer(event) {
     console.log(selection);
 
     if (selection === questions[currentQuestion].answer) {
+        var lastScore = localStorage.setItem('high-score', 0);
         var correctSelection = document.createElement('p');
         console.log(correctSelection);
-        correctSelection.textContent = "Right you are young padawan!";
         feedback.append(correctSelection);
+        score += 5;
     }
     else {
         timeLeft -= 10;
     }
-    feedback.innerHTML = "";
+
     questionCon.innerHTML = "";
     currentQuestion++;
     newQuestion();
 }
 
 function quizEnd() {
-    if (currentQuestion > questions.length + 1)
-        return;
+    questionCon.innerHTML = "";
+}
+
+var highScore = document.getElementById('high-score');
+var addScore = document.getElementById('add-score');
+var player = document.getElementById('user');
+var score = 0;
+
+function newScore() {
+    localStorage.setItem('high-score', score);
+    localStorage.setItem('user', document.getElementById('user').value);
 }
 
 questionCon.addEventListener('click', correctAnswer);
 startButton.addEventListener('click', startGame);
-
+highScore.addEventListener('click', viewScores);
+addScore.addEventListener('click', addScore);
