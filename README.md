@@ -18,7 +18,7 @@
 
 ## Screenshot 
 
-![Code Quiz](Assets/images/codequiz.png)
+![Code Quiz](Assets/images/codequizscreenshot.png)
 -Screenshot of deployed code quiz  
 
 ## Credits 
